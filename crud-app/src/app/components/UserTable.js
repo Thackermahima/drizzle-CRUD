@@ -1,7 +1,11 @@
 "use client";
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
 import { deleteUser } from '../services/api';
 
-const UserTable = ({ users, setCurrentUser, fetchUsers }) => {
+const UserTable = () => {
+  const { users, setCurrentUser, fetchUsers } = useContext(UserContext);
+
   const handleDelete = async (id) => {
     if (confirm('Are you sure you want to delete this user?')) {
       await deleteUser(id);

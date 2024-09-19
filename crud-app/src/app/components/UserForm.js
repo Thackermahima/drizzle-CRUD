@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { UserContext } from '../context/UserContext';
 import { addUser, updateUser } from '../services/api';
 
-const UserForm = ({ currentUser, setCurrentUser, fetchUsers }) => {
+const UserForm = () => {
+  const { currentUser, setCurrentUser, fetchUsers } = useContext(UserContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [age, setAge] = useState('');
